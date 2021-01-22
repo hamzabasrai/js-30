@@ -83,7 +83,9 @@
         this.classList.remove('playing');
       }
 
-      // Add event listeners for each key and the window
+      // Add event listeners for
+      // - key: Listen to transitionend to remove "playing" class
+      // - window: Listen to keydown to play correct sound
       const keys = document.querySelectorAll('.key');
       keys.forEach((key) => key.addEventListener('transitionend', removeTransition));
       window.addEventListener('keydown', playSound);
