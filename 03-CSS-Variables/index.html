@@ -31,12 +31,24 @@
       />
 
       <label for="base">Base Color</label>
-      <input id="base" type="color" name="base" value="#ffc600" />
+      <input id="base" type="color" name="base" value="#e24119" />
     </div>
 
     <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
 
     <style>
+      :root {
+        --base: #e24119;
+        --spacing: 10px;
+        --blur: 10px;
+      }
+
+      img {
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+      }
+
       /* misc styles, nothing to do with CSS variables */
       body {
         text-align: center;
