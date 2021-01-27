@@ -72,6 +72,24 @@
       }
     </style>
 
-    <script></script>
+    <script>
+      // Select all the input fields on the page
+      const inputs = document.querySelectorAll('.controls input');
+
+      // Define callback to handle change
+      function handleUpdate() {
+        // this.dataset is an object of all data-attributes on the target element
+        // Use nullish coalescing to default to empty string when sizing is undefined
+        const suffix = this.dataset.sizing ?? '';
+
+        // Target the entire document and update the CSS variable value
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+      }
+
+      // Add an eventListener on each input
+      // Listening to mousemove allows for instant updates rather than waiting for the user to stop changing the value
+      inputs.forEach((input) => input.addEventListener('change', handleUpdate));
+      inputs.forEach((input) => input.addEventListener('mousemove', handleUpdate));
+    </script>
   </body>
 </html>
